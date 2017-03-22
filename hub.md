@@ -40,12 +40,14 @@ Redis Pack is compatible with open source Redis applications. It is easy to try 
 You now have a redis database!
 
 ## Connecting to the Redis Database ##
+With the redis database created, you are ready to connect to your database to store data.
 
 * **redis-cli**: Read and Write Data using `redis-cli`
+redis-cli is a simple commandline tool to interact with redis database. Use the following script to connect to the Redis Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
 
-`docker  exec -it rp sudo su -`
+`docker  exec -it rp bash`
 `# sudo /opt/redislabs/bin/redis-cli -p 12000`
-`# 127.0.0.1:16653> set a 123`
+`# 127.0.0.1:16653> set key1 123`
 `# OK`
-`# 127.0.0.1:16653> get a`
+`# 127.0.0.1:16653> get key1`
 `# "123"`
