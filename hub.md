@@ -55,3 +55,26 @@ docker  exec -it rp bash
 # 127.0.0.1:16653> get key1
 # "123"
 ```
+
+* **Simple Python App**: Read and Write Data using Python
+
+A simple python app running in the host machine can also connect to the _database1_ created Redis Pack container. The following section assumes you already have python and redis-py (python library for connecting to redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
+
+Paste the following into a file named _"test.py"_
+
+```
+import redis
+
+r = redis.StrictRedis(host='localhost', port=12000, db=0)
+print ("set key1 123")
+print (r.set('key1', '123'))
+print ("get key1")
+print(r.get('key1'))
+```
+
+Run _"test.py"_ application to connect to the database and store and retrieve a key.
+
+```
+python.exe test.py
+```
+
