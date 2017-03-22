@@ -39,9 +39,9 @@ Redis Pack is compatible with open source Redis applications. It is easy to try 
 
 You now have a redis database!
 
-# Connecting to the Redis Database #
+## Connecting to the Redis Database ##
 
-* **redis-cli** Read and Write Data using `redis-cli`
+* **redis-cli**: Read and Write Data using `redis-cli`
 
 `docker  exec -it rp sudo su -`
 `# sudo /opt/redislabs/bin/redis-cli -p 12000`
