@@ -1,7 +1,7 @@
 ## What is Redis Enterprise Pack? ##
 [**Redis Enterprise Pack**](https://redislabs.com/products/redis-pack/) is enterprise grade, highly available, scalable, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs.
 
-**Note: **_Open source Redis applications transparently work against Redis Pack; Simply change your connections to point at Redis Pack._
+**_Note: Open source Redis applications transparently work against Redis Pack; Simply change your connections to point at Redis Pack._**
 
 Redis Pack extends open source Redis and delivers tangible benefits of stable high performance, zero-downtime linear scaling and hassle-free true high availability, with significant operational savings.
 
