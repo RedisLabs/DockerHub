@@ -16,7 +16,10 @@ Redis Pack also augments Redis databases with the capability to use a combinatio
 
 **_Note: This is a preview image for Redis Pack. The image is not intended for production use and only suitable for development for test purposes_**
 
-Redis Pack is compatible with open source Redis applications. It is easy to try Redis Pack with your applications by simply running the container and setting up the Redis Pack Cluster.
+Redis Pack is compatible with open source Redis applications. It is easy to try Redis Pack with your applications by simply running the container and setting up the Redis Pack Cluster. 
+
+You can run this container in any operating system that is capable of running linux based containers including Linux flavors, MacOS and Windows based machines with Docker.
+
 * **Step-1:** Start Redis Pack Docker container
 
 `docker run -d --cap-add sys_resource --name rp -p 8443:8443 -p 12000:12000 redispack/rp`
