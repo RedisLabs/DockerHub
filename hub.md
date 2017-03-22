@@ -43,6 +43,7 @@ You now have a redis database!
 With the redis database created, you are ready to connect to your database to store data.
 
 * **redis-cli**: Read and Write Data using `redis-cli`
+
 redis-cli is a simple commandline tool to interact with redis database. Use the following script to connect to the Redis Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
 
 ```
