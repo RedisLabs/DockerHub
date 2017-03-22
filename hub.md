@@ -47,6 +47,7 @@ redis-cli is a simple commandline tool to interact with redis database. Use the 
 
 ```
 docker  exec -it rp bash
+
 # sudo /opt/redislabs/bin/redis-cli -p 12000
 # 127.0.0.1:16653> set key1 123
 # OK
