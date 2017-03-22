@@ -33,12 +33,15 @@ Redis Pack is compatible with open source Redis applications. It is easy to try 
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-SetupScreen4.jpeg)
 
-* **Step-5:** Choose the new redis db option. In the new redis db screen, click the "show advanced option" link and provide a database name _"database1"_, endpoint port number of _12000_ and click "Activate" to create your database.
+* **Step-5:** Choose the new redis db option. In the new redis db screen, click the "show advanced option" link and provide a database name _"database1"_, endpoint port number of _"12000"_ and click "Activate" to create your database.
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-DBScreen.jpeg)
 
-You now have a database 
-* **Step-4:** Read and Write Data using `redis-cli`
+You now have a redis database!
+
+# Connecting to the Redis Database #
+
+* **redis-cli** Read and Write Data using `redis-cli`
 
 `docker  exec -it rp sudo su -`
 `# sudo /opt/redislabs/bin/redis-cli -p 12000`
