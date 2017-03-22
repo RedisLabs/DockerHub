@@ -59,7 +59,8 @@ docker  exec -it rp bash
 # "123"
 ```
 
-* **Simple Python App**: Read and Write Data using Python
+
+* **Simple Python App**: Read and Write Data using a few lines of Python code
 
 A simple python app running in the host machine can also connect to the _database1_ created Redis Pack container. The following section assumes you already have python and redis-py (python library for connecting to redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
 
