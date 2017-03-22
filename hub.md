@@ -78,3 +78,6 @@ Run _"test.py"_ application to connect to the database and store and retrieve a 
 python.exe test.py
 ```
 
+The output should look like the following screen if the connection is successful.
+
+![python app](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-PythonAppScreen.jpeg)
