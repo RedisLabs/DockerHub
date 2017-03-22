@@ -84,3 +84,4 @@ python.exe test.py
 The output should look like the following screen if the connection is successful.
 
 ![python app](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-PythonAppScreen.jpeg)
+
