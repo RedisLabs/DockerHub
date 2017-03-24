@@ -26,19 +26,19 @@ You can run the Redis Pack container linux based container in MacOS, various Lin
 
 * **Step-2:** Setup Redis Pack by `visiting https://localhost:8443` on the host machine to see the Admin Console. You may see a certificate error depending on your browser. Simply choose "continue to the website" to get to the setup screen. 
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-SetupScreen.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen.jpeg)
 
 * **Step-3:** Go with default settings and provide only a cluster FQDN: "cluster.local"
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-SetupScreen2.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen2.jpeg)
 
 * **Step-4:** Click "Next" to skip the license key screen if you don't have a license key to try the free version of the product. On the next screen, set up a cluster admin email and password.
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-SetupScreen4.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen4.jpeg)
 
 * **Step-5:** Choose the new redis db option. In the new redis db screen, click the "show advanced option" link and provide a database name _"database1"_, endpoint port number of _"12000"_ and click "Activate" to create your database.
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-DBScreen.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-DBScreen.jpeg)
 
 You now have a redis database!
 
@@ -84,5 +84,5 @@ python.exe test.py
 
 The output should look like the following screen if the connection is successful.
 
-![python app](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/RP-PythonAppScreen.jpeg)
+![python app](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-PythonAppScreen.jpeg)
 
