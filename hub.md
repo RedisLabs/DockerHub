@@ -47,7 +47,7 @@ You can run the Redis Pack container linux based container in MacOS, various Lin
 
 * **Step-5:** Choose the new redis db option. In the new redis db screen, click the "show advanced option" link and provide a database name _"database1"_, endpoint port number of _"12000"_ and click "Activate" to create your database.
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-DBScreen.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-DBScreen2.jpeg)
 
 You now have a redis database!
 
