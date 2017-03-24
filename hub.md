@@ -94,9 +94,9 @@ python.exe redis_test.py
 The output should look like the following screen if the connection is successful.
 
 ```
-set key1 123
-True
-get key1
-b'123'
+# set key1 123
+# True
+# get key1
+# b'123'
 ```
 
