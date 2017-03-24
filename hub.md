@@ -93,5 +93,10 @@ python.exe redis_test.py
 
 The output should look like the following screen if the connection is successful.
 
-![python app](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-PythonAppScreen.jpeg)
+```
+set key1 123
+True
+get key1
+b'123'
+```
 
