@@ -3,20 +3,11 @@
 
 **_Note: Open source Redis applications transparently work against Redis Enterprise Pack; Simply change your connections to point at Redis Enterprise Pack._**
 
-Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and hassle-free true high availability, with significant operational savings.
+Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.
+
+Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Enterprise Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
 
 ![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/redis_arch.jpeg)
-
-Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
-
-# Quick Links #
-
-* Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
-* Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
-* Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
-* [Common Topologies with Redis Enterprise Pack and Docker]()
-* [Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
-* [How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
 
 ## Quick Start with Redis Enterprise Pack Container ##
 
@@ -24,11 +15,13 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 You can run the Redis Enterprise Pack container linux based container in MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
-* **Step-1:** Start Redis Enterprise Pack Docker container
+* **Step-1:** Start Redis Enterprise Pack container
 
 `docker run -d --cap-add sys_resource --name rp -p 8443:8443 -p 12000:12000 redislabs/redis`
 
-* **Step-2:** Setup Redis Enterprise Pack by `visiting https://localhost:8443` on the host machine to see the Admin Console. You may see a certificate error depending on your browser. Simply choose "continue to the website" to get to the setup screen. 
+* **Step-2:** Setup Redis Enterprise Pack by visiting `https://localhost:8443` on the host machine to see the RP Web Console. 
+
+**_Note: You may see a certificate error depending on your browser. Simply choose "continue to the website" to get to the setup screen._**
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen.jpeg)
 
@@ -95,3 +88,21 @@ The output should look like the following screen if the connection is successful
 # b'123'
 ```
 
+## Common Topologies with Redis Pack with Docker Containers ##
+
+Redis Enterprise Pack (RP) can be deployed using this container on Windows, macOS and Linux based systems. RP container represents a node in an RP Cluster. When deploying RP using Docker, there are a couple of common topologies.
+* Topology#1: The simplest topology is to run single node RP Cluster with a single container in a single host machine. This is best for local development or functional testing. This topology is depicted under Topology#1 below. Simply follow the instruction in the getting started pages for Windows and macOS and Linux pages. 
+* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production Redise Pack deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. This topology is depicted under Topology#2 below. 
+* Topology#3: You may also run multi-node RP cluster with multiple RP containers each deployed to its own host machine. This topology minimizes interference between RP containers so performs more predictably compared to topology#2. This topology is depicted under Topology#3 below. 
+
+![topologies](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/topology.jpeg)
+
+
+## Quick Links ##
+
+* Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
+* Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
+* Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+* [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
+* [Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
+* [How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
