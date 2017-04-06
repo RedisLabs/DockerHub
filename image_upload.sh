@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#remember to do a docker login first
 #step1
 docker pull ---/---
 #step2 - pull the image id
