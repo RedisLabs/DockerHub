@@ -9,13 +9,13 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 # Quick Links #
 
-Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
-
-[Common Topologies with Redis Enterprise Pack and Docker]()
-
-[Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
-
-[How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
+Getting Started with Redis Enterprise Pack and Docker 
+* [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
+* [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
+* [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+* [Common Topologies with Redis Enterprise Pack and Docker]()
+* [Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
+* [How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
 
 ## Quick Start with Redis Enterprise Pack Container ##
 
