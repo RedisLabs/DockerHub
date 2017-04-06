@@ -1,18 +1,19 @@
-## What is Redis Enterprise Pack? ##
+## What is Redis Enterprise Pack (RP)? ##
 [**Redis Enterprise Pack**](https://redislabs.com/products/redis-pack/) is enterprise grade, highly available, scalable, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs.
 
 **_Note: Open source Redis applications transparently work against Redis Enterprise Pack; Simply change your connections to point at Redis Enterprise Pack._**
 
-Redis Enterprise Pack extends open source Redis and delivers tangible benefits of stable high performance, zero-downtime linear scaling and hassle-free true high availability, with significant operational savings.
+Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and hassle-free true high availability, with significant operational savings.
+
+![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/redis_arch.jpeg)
 
 Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
 
 # Quick Links #
 
-Getting Started with Redis Enterprise Pack and Docker 
-* [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
-* [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
-* [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+* Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
+* Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
+* Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
 * [Common Topologies with Redis Enterprise Pack and Docker]()
 * [Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
 * [How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
