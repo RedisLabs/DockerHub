@@ -100,9 +100,10 @@ Redis Enterprise Pack (RP) can be deployed using this container on Windows, macO
 
 ## Quick Links ##
 
+* [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
 * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
 * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
 * Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
-* [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
-* [Documentation for Redis Enterprise Pack](https://redislabs.com/resources/redis-pack-documentation/)
-* [How To Guides for Redis Enterprise Pack](https://redislabs.com/resources/how-to-redis-enterprise/)
+* [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
+* [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
+* [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
