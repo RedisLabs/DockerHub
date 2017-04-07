@@ -13,6 +13,8 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 **_Note: This is a preview image for Redis Enterprise Pack version 4.4. The image is not intended for production use and only suitable for development for test purposes_**
 
+**_Note: With the preview image, It is important to note that RP Docker image works best when you provde a minimum of 2 cores and 4GB ram per container._** 
+
 You can run the Redis Enterprise Pack container linux based container in MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
 * **Step-1:** Start Redis Enterprise Pack container
@@ -92,7 +94,9 @@ The output should look like the following screen if the connection is successful
 
 Redis Enterprise Pack (RP) can be deployed using this container on Windows, macOS and Linux based systems. RP container represents a node in an RP Cluster. When deploying RP using Docker, there are a couple of common topologies.
 * Topology#1: The simplest topology is to run single node RP Cluster with a single container in a single host machine. This is best for local development or functional testing. This topology is depicted under Topology#1 below. Simply follow the instruction in the getting started pages for Windows and macOS and Linux pages. 
-* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production Redise Pack deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. This topology is depicted under Topology#2 below. 
+
+* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production Redise Pack deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. 
+
 * Topology#3: You may also run multi-node RP cluster with multiple RP containers each deployed to its own host machine. This topology minimizes interference between RP containers so performs more predictably compared to topology#2. This topology is depicted under Topology#3 below. 
 
 ![topologies](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/topology.jpeg)
