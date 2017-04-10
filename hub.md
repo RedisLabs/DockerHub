@@ -13,7 +13,7 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 **_Note: This is a preview image for Redis Enterprise Pack version 4.4. The image is not intended for production use and only suitable for development for test purposes_**
 
-**_Note: With the preview image, It is important to note that RP Docker image works best when you provde a minimum of 2 cores and 4GB ram per container._** 
+**_Note: With the preview image, It is important to note that RP Docker image works best when you provde a minimum of 2 cores and 4GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [RP Documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)_** 
 
 You can run the Redis Enterprise Pack container linux based container in MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
@@ -44,7 +44,7 @@ You now have a redis database!
 ## Connecting to the Redis Database ##
 With the redis database created, you are ready to connect to your database to store data.
 
-* **redis-cli**: Read and Write Data using `redis-cli`
+* **Connect using redis-cli**: Read and Write Data using `redis-cli`
 
 redis-cli is a simple commandline tool to interact with redis database. Use the following script to connect to the Redis Enterprise Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
 
@@ -57,9 +57,9 @@ docker  exec -it rp bash
 # 127.0.0.1:16653> get key1
 # "123"
 ```
+ 
 
-
-* **Simple Python App**: Read and Write Data using a few lines of Python code
+* **Connect using a Simple Python App**: Read and Write Data using a few lines of Python code
 
 A simple python app running in the host machine can also connect to the _database1_ created Redis Enterprise Pack container. The following section assumes you already have python and redis-py (python library for connecting to redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
 
