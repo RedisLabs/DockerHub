@@ -75,7 +75,7 @@ print ("get key1")
 print(r.get('key1'))
 ```
 
-Run _"redis_test.py"_ application to connect to the database and store and retrieve a key.
+Run ```redis_test.py``` application to connect to the database and store and retrieve a key.
 
 ```
 python.exe redis_test.py
