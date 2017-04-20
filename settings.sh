@@ -44,16 +44,10 @@ rp_network_name="redis_net"
 #start admin UI and rest API ports from 8443 and 9443 and +1 per node
 rp_admin_ui_port=8443
 rp_admin_restapi_port=9443
+rp_db_port=12000
 
 #misc settings
-#enable fast delete will supress confirmation on deletes of each VM. do this only if you are certain delete will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_delete=0
-#enable fast restart will supress confirmation on restarts of each VM. do this only if you are certain restart will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_restart=0
-#enable fast start will supress confirmation on start of each VM. do this only if you are certain start will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_start=0
-#enable fast shutdown will supress confirmation on shutdowns of each VM. do this only if you are certain shutdown will not harm your existing VMs and you have tried the script multiple times.
-enable_fast_shutdown=0
+sleep_time_in_seconds=150
 
 #print colors
 info_color="\033[1;32m"
