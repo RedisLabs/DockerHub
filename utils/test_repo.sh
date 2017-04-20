@@ -45,7 +45,7 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-    python3 utils/test_db.py $rp_db_port
+    python3 test_db.py $rp_db_port
 }
 
 ### START HERE ###
