@@ -39,14 +39,14 @@ You can run the Redis Enterprise Pack container linux based container in MacOS, 
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-DBScreen2.jpeg)
 
-You now have a redis database!
+You now have a Redis database!
 
 ## Connecting to the Redis Database ##
-With the redis database created, you are ready to connect to your database to store data.
+With the Redis database created, you are ready to connect to your database to store data.
 
 * **Connect using redis-cli**: Read and Write Data using `redis-cli`
 
-redis-cli is a simple commandline tool to interact with redis database. Use the following script to connect to the Redis Enterprise Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
+redis-cli is a simple commandline tool to interact with a Redis instance. Use the following script to connect to the Redis Enterprise Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
 
 ```
 docker  exec -it rp bash
@@ -61,7 +61,7 @@ docker  exec -it rp bash
 
 * **Connect using a Simple Python App**: Read and Write Data using a few lines of Python code
 
-A simple python app running in the host machine can also connect to the _database1_ created Redis Enterprise Pack container. The following section assumes you already have python and redis-py (python library for connecting to redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
+A simple Python app running in the host machine can also connect to the _database1_ created Redis Enterprise Pack container. The following section assumes you already have Python and redis-py (Python library for connecting to Redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
 
 Paste the following into a file named ```"redis_test.py"```
 
@@ -95,7 +95,7 @@ The output should look like the following screen if the connection is successful
 Redis Enterprise Pack (RP) can be deployed using this container on Windows, macOS and Linux based systems. RP container represents a node in an RP Cluster. When deploying RP using Docker, there are a couple of common topologies.
 * Topology#1: The simplest topology is to run single node RP Cluster with a single container in a single host machine. This is best for local development or functional testing. This topology is depicted under Topology#1 below. Simply follow the instruction in the getting started pages for Windows and macOS and Linux pages. 
 
-* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production Redise Pack deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. 
+* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production RP deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. 
 
 * Topology#3: You may also run multi-node RP cluster with multiple RP containers each deployed to its own host machine. This topology minimizes interference between RP containers so performs more predictably compared to topology#2. This topology is depicted under Topology#3 below. 
 
