@@ -25,14 +25,18 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
-#remember to do a docker login first
+#remember to do a docker login first :)
 #step1
-docker pull ---/---
+docker pull <source/repo>
 #step2 - pull the image id
 docker images list
-#step3 - tag the image
-docker tag ---- redislabs/redis
-#step3 - push the image
+#step3 - tag the image - tag should be the version number with major.minor.patch-build
+docker tag <image_ID> redislabs/redis:tag
+#step4 - push the image
+docker push redislabs/redis:tag
+#step5 - tag the image as latest if this is also the latest version and push again
+docker tag <image_ID> redislabs/redis:latest
 docker push redislabs/redis:latest
+
 
 

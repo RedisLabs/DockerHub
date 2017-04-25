@@ -34,7 +34,7 @@ cleanup(){
     for ((i=1; i<4; i++)); do eval "docker rm -f $rp_container_name_prefix$i"; done
     eval "docker rm -f $rp_container_name_prefix"
     #remove all images
-    for i in "redislabs/redis" "ushchar2/rlec" "ushchar2/rlec:4.4.2-46"; do eval "docker rmi -f $i"; done
+    for i in "redislabs/redis" "ushchar2/rlec" "ushchar2/rlec:4.4.2-46" "ushchar2/rlec:4.5.0-18"; do eval "docker rmi -f $i"; done
 }
 
 test_db(){
@@ -78,3 +78,11 @@ sleep $sleep_time_in_seconds
 #test the database read/write
 test_db
 
+#TEST4 redislabs/redis:4.5.0-18
+echo ""
+echo $info_color"test#3"$no_color": run redislabs/redis:4.5.0-18"
+cleanup
+docker run -d --cap-add sys_resource --name rp -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port redislabs/redis:4.5.0-18
+sleep $sleep_time_in_seconds
+#test the database read/write
+test_db
