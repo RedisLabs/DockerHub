@@ -13,7 +13,7 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 **_Note: This is a preview image for Redis Enterprise Pack version 4.4. The image is not intended for production use and only suitable for development for test purposes_**
 
-**_Note: With the preview image, It is important to note that RP Docker image works best when you provde a minimum of 2 cores and 4GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)_** 
+**_Note: With the preview image, It is important to note that RP Docker image works best when you provde a minimum of 2 cores and 6GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)_** 
 
 You can run the Redis Enterprise Pack container linux based container in MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
@@ -111,3 +111,7 @@ Redis Enterprise Pack (RP) can be deployed using this container on Windows, macO
 * [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
 * [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
 * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
+
+## Known Issues ##
+
+* **Possible error when creating a database: "Cannot allocate nodes for shards"** - With the preview image, if you don't configure the memory limit high enough, you may see an error when creating a database that reads : "Cannot allocate nodes for shards". It is important to note that RP Docker image works best when you provide a minimum of 2 cores and 6GB ram per container. You can work around the issue by increasing the RAM allocated to the container either through Docker preferences on your machine or by specifying the -m option with docker run command. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/) 
