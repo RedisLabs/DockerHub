@@ -28,9 +28,9 @@
 #read settings
 source settings.sh
 
-cleanup(){
+cleanup(){ 
     echo "cleanup()"
-   
+    
     #list of images to delete
     cleanup_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "ushchar2/rlec" "ushchar2/rlec:4.4.2-46" "ushchar2/rlec:4.5.0-18")
     
@@ -59,7 +59,7 @@ test_db(){
 
 ### START HERE ###
 
-test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31")
+test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-22")
 
 for j in ${test_images[@]};
 do 
