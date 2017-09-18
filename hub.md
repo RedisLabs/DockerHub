@@ -1,11 +1,13 @@
-## Supported Tags
+### Supported Tags
 * _`4.5.0-43`_, _`latest`_
-* _`5.0.0-17-preview`_ - preview is the next upcoming version that is under test. 
+* _`5.0.0-17-preview`_
 * _`4.4.2-46`_
+_Note: version 5.0 preview is the next upcoming version that is under test._
 
-## Quick Reference
+### Quick Reference
 * **Supported Docker Versions:**
-v17 or greater
+Docker version 17 or greater
+
 * **Getting Started and Documentation**
  * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
  * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
