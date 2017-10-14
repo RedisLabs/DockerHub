@@ -31,15 +31,28 @@ source settings.sh
 cleanup(){ 
     echo "cleanup()"
     
-    #list of images to delete
-    cleanup_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "ushchar2/rlec" "ushchar2/rlec:4.4.2-46" "ushchar2/rlec:4.5.0-18")
+    echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
+    read yes_no
+
+    if [ $yes_no == 'y' ]
+    then
+        #list of images to delete
+        cleanup_containers=($(docker ps -a -f "name=rp*" --format {{.Names}}))
+        cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
+        
+        
+        #remove all running containers 
+        for i in ${cleanup_containers[@]}; do 
+            echo $info_color"REMOVING CONTAINER : "$no_color $i
+            eval "docker rm -f $i"; 
+        done
     
-    #remove all running dockers 
-    for ((i=1; i<=$rp_total_nodes; i++)); do eval "docker rm -f $rp_container_name_prefix$i"; done
-    eval "docker rm -f $rp_container_name_prefix"
-   
-    #remove all images
-    for i in ${cleanup_images[@]}; do eval "docker rmi -f $i"; done
+        #remove all images
+        for i in ${cleanup_images[@]}; do 
+            echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
+            eval "docker rmi -f $i"; 
+        done
+    fi
 }
 
 test_db(){
@@ -59,7 +72,7 @@ test_db(){
 
 ### START HERE ###
 
-test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-22")
+test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:5.0.0-17-preview")
 
 for j in ${test_images[@]};
 do 
