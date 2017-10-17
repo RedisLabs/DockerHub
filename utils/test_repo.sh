@@ -31,28 +31,23 @@ source settings.sh
 cleanup(){ 
     echo "cleanup()"
     
-    echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
-    read yes_no
-
-    if [ $yes_no == 'y' ]
-    then
-        #list of images to delete
-        cleanup_containers=($(docker ps -a -f "name=rp*" --format {{.Names}}))
-        cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
-        
-        
-        #remove all running containers 
-        for i in ${cleanup_containers[@]}; do 
-            echo $info_color"REMOVING CONTAINER : "$no_color $i
-            eval "docker rm -f $i"; 
-        done
+    #list of images to delete
+    cleanup_containers=($(docker ps -a -f "name=rp*" --format {{.Names}}))
+    cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
     
-        #remove all images
-        for i in ${cleanup_images[@]}; do 
-            echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
-            eval "docker rmi -f $i"; 
-        done
-    fi
+    
+    #remove all running containers 
+    for i in ${cleanup_containers[@]}; do 
+        echo $info_color"REMOVING CONTAINER : "$no_color $i
+        eval "docker rm -f $i"; 
+    done
+
+    #remove all images
+    for i in ${cleanup_images[@]}; do 
+        echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
+        eval "docker rmi -f $i"; 
+    done
+
 }
 
 test_db(){
@@ -74,17 +69,23 @@ test_db(){
 
 test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:5.0.0-17-preview")
 
-for j in ${test_images[@]};
-do 
-    echo ""
-    echo $info_color"test#1"$no_color": run "$j
-    cleanup
-    
-    #launch the container
-    echo "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
-    eval "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
-    sleep $sleep_time_in_seconds
-    
-    #test the database read/write
-    test_db
-done
+echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
+read yes_no
+
+if [ $yes_no == 'y' ]
+then
+    for j in ${test_images[@]};
+    do 
+        echo ""
+        echo $info_color"test#1"$no_color": run "$j
+        cleanup
+        
+        #launch the container
+        echo "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
+        eval "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
+        sleep $sleep_time_in_seconds
+        
+        #test the database read/write
+        test_db
+    done
+fi
