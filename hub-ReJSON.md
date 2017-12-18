@@ -32,6 +32,7 @@ OK
 2) "lastSeen"
 3) "loggedOut"
 ```
+
 ## 
 ## ReJSON with Redis Enterprise
 Redis Enterprise Pack is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReJSON with Redis Enterprise to get the advantages above with your ReJSON deployments. 
