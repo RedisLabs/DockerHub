@@ -25,15 +25,17 @@ docker exec -it redis-rejson bash
 OK
 ```
 
-#### 4. Get object names in the document:
+#### 4. Get object names and value for "loggedOut" attribute in the document:
 ```sh
 # 127.0.0.1:6379> JSON.OBJKEYS obj .
 1) "name"
 2) "lastSeen"
 3) "loggedOut"
+# 127.0.0.1:6379> JSON.GET obj .loggedOut
+"true"
 ```
 
-## 
+
 ## ReJSON with Redis Enterprise
 Redis Enterprise Pack is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReJSON with Redis Enterprise to get the advantages above with your ReJSON deployments. 
 
