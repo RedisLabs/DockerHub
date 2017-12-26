@@ -106,17 +106,6 @@ The output should look like the following screen if the connection is successful
 # b'123'
 ```
 
-## Common Topologies with Redis Pack with Docker Containers ##
-
-Redis Enterprise Pack (RP) can be deployed using this container on Windows, macOS and Linux based systems. RP container represents a node in an RP Cluster. When deploying RP using Docker, there are a couple of common topologies.
-* Topology#1: The simplest topology is to run single node RP Cluster with a single container in a single host machine. This is best for local development or functional testing. This topology is depicted under Topology#1 below. Simply follow the instruction in the getting started pages for Windows and macOS and Linux pages. 
-
-* Topology#2: You may also run multi-node RP cluster with multiple rp containers all deployed to a single host machine. This topology is similar to the previous setup except you run a multi node cluster to developer and test against a system that scale-minimized but similar to your production RP deployment. It is important to note that the topology, under load causes the containers to interfere with each other, thus is not recommended if you are looking for predictable performance. 
-
-* Topology#3: You may also run multi-node RP cluster with multiple RP containers each deployed to its own host machine. This topology minimizes interference between RP containers so performs more predictably compared to topology#2. This topology is depicted under Topology#3 below. 
-
-![topologies](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/topology.jpeg)
-
 
 ## Known Issues ##
 
