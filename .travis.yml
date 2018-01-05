@@ -1,7 +1,9 @@
 language: bash
-before_install:
-- sudo apt-get -qq update
-- sudo pip install update
+sudo: required
+services:
+  - docker
+install:
+  - sudo apt-get install python3
 script:
-  ./utils/test_repo.sh
+  echo "y" | ./tests/test_repo.sh
 
