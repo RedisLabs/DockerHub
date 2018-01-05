@@ -1,0 +1,7 @@
+language: bash
+before_install:
+- sudo apt-get -qq update
+- sudo pip install update
+script:
+  ./utils/test_repo.sh
+
