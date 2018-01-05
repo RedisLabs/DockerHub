@@ -25,7 +25,7 @@ Redis Enterprise Pack extends open source Redis and delivers stable high perform
 
 Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Enterprise Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
 
-![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/redis_arch.jpeg)
+![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/general/redis_arch.jpeg)
 
 ## Quick Start with Redis Enterprise Pack Container ##
 
@@ -41,19 +41,19 @@ You can run the Redis Enterprise Pack container linux based container in MacOS, 
 
 **_Note: You may see a certificate error depending on your browser. Simply choose "continue to the website" to get to the setup screen._**
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-SetupScreen.jpeg)
 
 * **Step-3:** Go with default settings and provide only a cluster FQDN: "cluster.local"
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen2.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-SetupScreen2.jpeg)
 
 * **Step-4:** Click "Next" to skip the license key screen if you don't have a license key to try the free version of the product. On the next screen, set up a cluster admin email and password.
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-SetupScreen4.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-SetupScreen4.jpeg)
 
 * **Step-5:** Choose the new redis db option. In the new redis db screen, click the "show advanced option" link and provide a database name _"database1"_, endpoint port number of _"12000"_ and click "Activate" to create your database.
 
-![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/mac/RP-DBScreen2.jpeg)
+![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-DBScreen2.jpeg)
 
 You now have a Redis database!
 
