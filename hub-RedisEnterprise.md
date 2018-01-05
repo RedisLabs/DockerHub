@@ -25,7 +25,7 @@ Redis Enterprise Pack extends open source Redis and delivers stable high perform
 
 Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Enterprise Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
 
-![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/images/general/redis_arch.jpeg)
+![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/general/redis_arch.jpeg)
 
 ## Quick Start with Redis Enterprise Pack Container ##
 
