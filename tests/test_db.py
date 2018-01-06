@@ -35,5 +35,4 @@ try:
         print("DB TEST PASSED")
     else:
         print("DB TEST FAILED: Can't find the key")
-# except :
-#     print("DB TEST FAILED")
+    
