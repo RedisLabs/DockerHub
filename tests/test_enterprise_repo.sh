@@ -26,8 +26,35 @@
 # Author: Cihan Biyikoglu - github:(cihanb)
 
 #read settings
-source test_settings.sh
+#total number of nodes to set up
+rp_total_nodes=3
+#container ame prefix - each node get a number added based on nodecount
+rp_container_name_prefix="rp"
+#container resources
+rp_container_ram="4GB"
+rp_container_cpus=2
+#cluster name
+rp_fqdn="cluster.rp.local"
+#TODO: change this username
+rp_admin_account_name="cihan@redislabs.com"
+#TODO: change this password
+rp_admin_account_password="redislabs123"
+#docker network name for the cluster
+rp_network_name="redis_net"
+#start admin UI and rest API ports from 8443 and 9443 and +1 per node
+rp_admin_ui_port=8443
+rp_admin_restapi_port=9443
 
+#misc settings
+sleep_time_in_seconds=150
+
+#print colors
+info_color="\033[1;32m"
+warning_color="\033[0;33m"
+error_color="\033[0;31m"
+no_color="\033[0m"
+
+#images to test
 test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:4.5.0-51" "redislabs/redis:5.0.0-31")
 
 cleanup(){ 

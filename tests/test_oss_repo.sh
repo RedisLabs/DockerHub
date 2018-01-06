@@ -26,7 +26,8 @@
 # Author: Cihan Biyikoglu - github:(cihanb)
 
 #read settings
-source test_settings.sh
+oss_db_port=6379
+oss_container_name_prefix="redis"
 
 test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 

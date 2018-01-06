@@ -45,7 +45,7 @@ rp_network_name="redis_net"
 rp_admin_ui_port=8443
 rp_admin_restapi_port=9443
 rp_db_port=12000
-oss_db_port=6379
+
 
 
 #misc settings
