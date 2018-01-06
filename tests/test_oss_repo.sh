@@ -26,7 +26,7 @@
 # Author: Cihan Biyikoglu - github:(cihanb)
 
 #read settings
-source ./tests/test_settings.sh
+source test_settings.sh
 
 test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 
