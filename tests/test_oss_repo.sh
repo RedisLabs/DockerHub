@@ -28,7 +28,7 @@
 #read settings
 source test_settings.sh
 
-test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:4.5.0-51" "redislabs/redis:5.0.0-31" "redislabs/rejson" "redislabs/rebloom" "redislabs/redisearch")
+test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 
 cleanup(){ 
     echo "cleanup()"
@@ -55,16 +55,10 @@ cleanup(){
 test_db(){
     echo "test_db()"
 
-    #create redis pack cluster
-    docker exec -d --privileged $rp_container_name_prefix "/opt/redislabs/bin/rladmin" cluster create name $rp_fqdn username $rp_admin_account_name password $rp_admin_account_password flash_enabled
-
-    #create database on redis pack cluster
-    curl -s -k -u "$rp_admin_account_name:$rp_admin_account_password" --request POST --url "https://localhost:$rp_admin_restapi_port/v1/bdbs"  --header 'content-type: application/json' --data '{"name":"sample-db","type":"redis","memory_size":1073741824,"port":'"$rp_db_port"'}' --retry 10
-    
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-    python3 test_db.py $rp_db_port
+    python3 test_db.py $oss_db_port
 }
 
 ### START HERE ###
@@ -81,8 +75,8 @@ then
         cleanup
         
         #launch the container
-        echo "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
-        eval "docker run -d --cap-add sys_resource --name $rp_container_name_prefix -p $rp_admin_ui_port:$rp_admin_ui_port -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port $j"
+        echo "docker run -d --name $rp_container_name_prefix -p $oss_db_port:$oss_db_port $j"
+        eval "docker run -d --name $rp_container_name_prefix -p $oss_db_port:$oss_db_port $j"
         sleep $sleep_time_in_seconds
         
         #test the database read/write
