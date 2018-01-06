@@ -6,6 +6,6 @@ install:
   - sudo apt-get install python3
 script:
   - cd tests
-  - echo "y" | ./test_enterprise_repo.sh
-  - echo "y" | ./test_oss_repo.sh
+  - echo "y" | sudo ./test_enterprise_repo.sh
+  - echo "y" | sudo ./test_oss_repo.sh
 
