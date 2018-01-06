@@ -6,7 +6,6 @@ before_install:
   - sudo apt-get install python3
   - sudo apt-get -qq update
   - sudo pip install update
-install:
   - sudo pip install -r requirements.txt
 script:
   - cd tests
