@@ -2,8 +2,12 @@ language: bash
 sudo: required
 services:
   - docker
-install:
+before_install:
   - sudo apt-get install python3
+  - sudo apt-get -qq update
+  - sudo pip install update
+install:
+  - pip install -r requirements.txt
 script:
   - cd tests
   - echo "y" | sudo ./test_enterprise_repo.sh
