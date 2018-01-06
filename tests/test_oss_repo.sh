@@ -59,7 +59,7 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-    python3 test_db.py $oss_db_port
+    python test_db.py $oss_db_port
 }
 
 ### START HERE ###
