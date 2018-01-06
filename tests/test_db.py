@@ -34,6 +34,6 @@ try:
     if (r.get('key1') == b'123'):
         print("DB TEST PASSED")
     else:
-        print("DB TEST FAILED")
+        print("DB TEST FAILED: Can't find the key")
 except :
     print("DB TEST FAILED")
