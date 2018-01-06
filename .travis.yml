@@ -5,8 +5,7 @@ services:
 install:
   - sudo apt-get install python3
 script:
-  - echo $PWD
-  - LS -lR
-  - echo "y" | ./tests/test_enterprise_repo.sh
-  - echo "y" | ./tests/test_oss_repo.sh
+  - cd tests
+  - echo "y" | ./test_enterprise_repo.sh
+  - echo "y" | ./test_oss_repo.sh
 
