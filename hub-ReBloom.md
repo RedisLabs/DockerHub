@@ -6,7 +6,7 @@ Rebloom bring in bloom filter as a Redis data type. Bloom filters are probabilis
 
 #### 1. Running with Docker
 ```sh
-docker run -p 6379:6379 --name redis-rebloom redislabs/rebloom:latest
+docker run -d -p 6379:6379 --name redis-rebloom redislabs/rebloom:latest
 ```
 
 #### 2. Connecting:

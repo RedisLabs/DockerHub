@@ -8,7 +8,7 @@ ReJSON is a Redis module that implements JSON as a native data type. It allows s
 
 #### 1. Running with Docker
 ```sh
-docker run -p 6379:6379 --name redis-rejson redislabs/rejson:latest
+docker run -d -p 6379:6379 --name redis-rejson redislabs/rejson:latest
 ```
 
 #### 2. Connecting:
