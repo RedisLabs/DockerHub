@@ -63,8 +63,6 @@ cleanup(){
     
     #list of images to delete
     cleanup_containers=($(docker ps -a -f "name=rp*" --format {{.Names}}))
-    cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
-    
     
     #remove all running containers 
     for i in ${cleanup_containers[@]}; do 
@@ -72,6 +70,16 @@ cleanup(){
         eval "docker rm -f $i"; 
     done
 
+    #list of images to delete
+    cleanup_containers=($(docker ps -a -f "name=redis*" --format {{.Names}}))
+    
+    #remove all running containers 
+    for i in ${cleanup_containers[@]}; do 
+        echo $info_color"REMOVING CONTAINER : "$no_color $i
+        eval "docker rm -f $i"; 
+    done
+
+    cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
     #remove all images
     for i in ${cleanup_images[@]}; do 
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
@@ -93,8 +101,8 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
+    
     echo "python test_db.py $rp_db_port"
-
     sleep 10
     python test_db.py $rp_db_port
 }
