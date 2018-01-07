@@ -43,7 +43,7 @@ test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 cleanup(){ 
     echo "cleanup()"
 
-    #list of images to delete
+    #list of contianer to delete
     cleanup_containers=($(docker ps -a -f "name=" --format {{.Names}}))
     
     #remove all running containers 
@@ -51,8 +51,10 @@ cleanup(){
         echo $info_color"REMOVING CONTAINER : "$no_color $i
         eval "docker rm -f $i"; 
     done
-    
+
+    #list of images to delete
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
+
     #remove all images
     for i in ${cleanup_images[@]}; do 
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
@@ -67,9 +69,9 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-    
-    echo "python test_db.py $oss_db_port"
+
     sleep 10
+    echo "python test_db.py $oss_db_port"    
     python test_db.py $oss_db_port
 }
 
@@ -89,6 +91,7 @@ then
         #launch the container
         echo "docker run -d --name $oss_container_name_prefix -p $oss_db_port:$oss_db_port $j"
         eval "docker run -d --name $oss_container_name_prefix -p $oss_db_port:$oss_db_port $j"
+
         sleep $sleep_time_in_seconds
         
         #test the database read/write

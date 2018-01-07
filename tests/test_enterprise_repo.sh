@@ -61,7 +61,7 @@ test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-
 cleanup(){ 
     echo "cleanup()"
     
-    #list of images to delete
+    #list of containers to delete
     cleanup_containers=($(docker ps -a -f "name=" --format {{.Names}}))
     
     #remove all running containers 
@@ -70,6 +70,7 @@ cleanup(){
         eval "docker rm -f $i"; 
     done
 
+    #list of images to delete
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
     #remove all images
     for i in ${cleanup_images[@]}; do 
@@ -92,9 +93,9 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-    
-    echo "python test_db.py $rp_db_port"
+
     sleep 10
+    echo "python test_db.py $rp_db_port"
     python test_db.py $rp_db_port
 }
 
