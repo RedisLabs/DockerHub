@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # The MIT License (MIT)
 #
@@ -29,6 +29,15 @@
 oss_db_port=6379
 oss_container_name_prefix="redis"
 
+#misc settings
+sleep_time_in_seconds=150
+
+#print colors
+info_color="\033[1;32m"
+warning_color="\033[0;33m"
+error_color="\033[0;31m"
+no_color="\033[0m"
+
 test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 
 cleanup(){ 
@@ -36,8 +45,6 @@ cleanup(){
     
     #list of images to delete
     cleanup_containers=($(docker ps -a -f "name=rp*" --format {{.Names}}))
-    cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
-    
     
     #remove all running containers 
     for i in ${cleanup_containers[@]}; do 
@@ -45,6 +52,16 @@ cleanup(){
         eval "docker rm -f $i"; 
     done
 
+    #list of images to delete
+    cleanup_containers=($(docker ps -a -f "name=redis*" --format {{.Names}}))
+    
+    #remove all running containers 
+    for i in ${cleanup_containers[@]}; do 
+        echo $info_color"REMOVING CONTAINER : "$no_color $i
+        eval "docker rm -f $i"; 
+    done
+    
+    cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
     #remove all images
     for i in ${cleanup_images[@]}; do 
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
@@ -59,6 +76,9 @@ test_db(){
     #test database read/write
     echo ""
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
+    
+    echo "python test_db.py $oss_db_port"
+    sleep 10
     python test_db.py $oss_db_port
 }
 
