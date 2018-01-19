@@ -97,11 +97,15 @@ The output should look like the following screen if the connection is successful
 * **Supported Docker Versions:**
 Docker version 17 or greater.
 
-* **Getting Started and Documentation**
+* **Getting Started**
  * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
  * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
  * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
  * Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+ * Getting Started with [Redis on Flash](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/redis-enterprise-flash/) Databases
+ * Getting Started with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/crdbs/)
+ 
+ * **Detailed Documentation**
  * [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
  * [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
  * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
