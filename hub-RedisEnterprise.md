@@ -1,27 +1,14 @@
+[![Build Status](https://travis-ci.org/RedisLabs/DockerHub.svg?branch=master)](https://travis-ci.org/RedisLabs/DockerHub)
+
 ### Supported Tags
 * _`5.0.0-31`_, _`latest`_
 * _`4.5.0-51`_, 
 * _`4.4.2-46`_
 
-### Quick Reference
-* **Supported Docker Versions:**
-Docker version 17 or greater.
-
-* **Getting Started and Documentation**
- * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
- * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
- * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
- * Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
- * [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
- * [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
- * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
-
 ## What is Redis Enterprise Pack (RP)? ##
-[**Redis Enterprise Pack**](https://redislabs.com/products/redis-pack/) is enterprise grade, highly available, scalable, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs.
+[**Redis Enterprise Pack**](https://redislabs.com/products/redis-pack/) is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.
 
-**_Note: Open source Redis applications transparently work against Redis Enterprise Pack. Simply change your connections to point at Redis Enterprise Pack database endpoint..._**
-
-Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.
+**_Note: Open source Redis applications transparently work against Redis Enterprise Pack. Simply change your connections to point at Redis Enterprise Pack database endpoint._**
 
 Redis Enterprise Pack also augments Redis databases with the capability to use a combination of RAM and cost-effective Flash memory (a.k.a [Redis Enterprise Flash](https://redislabs.com/products/redis-pack/flash-memory/)), retaining the same sub-millisecond latencies of Redis while storing larger datasets at drastically lower costs.
 
@@ -31,7 +18,7 @@ Redis Enterprise Pack also augments Redis databases with the capability to use a
 
 **_Note: Redis Enterprise Pack Docker image works best when you provide a minimum of 2 cores and 6GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)_** 
 
-You can run the Redis Enterprise Pack container linux based container in MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
+You can run the Redis Enterprise Pack linux based container on MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
 * **Step-1:** Start Redis Enterprise Pack container
 
@@ -47,7 +34,7 @@ You can run the Redis Enterprise Pack container linux based container in MacOS, 
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-SetupScreen2.jpeg)
 
-* **Step-4:** Click "Next" to skip the license key screen if you don't have a license key to try the free version of the product. On the next screen, set up a cluster admin email and password.
+* **Step-4:** If you don't have a license key, click "Next" to skip the license key screen to try the free version of the product. On the next screen, set up a cluster admin email and password.
 
 ![setup screen](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/mac/RP-SetupScreen4.jpeg)
 
@@ -106,6 +93,18 @@ The output should look like the following screen if the connection is successful
 # b'123'
 ```
 
+### Quick Reference
+* **Supported Docker Versions:**
+Docker version 17 or greater.
+
+* **Getting Started and Documentation**
+ * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
+ * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
+ * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
+ * Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+ * [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
+ * [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
+ * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
 
 ## Known Issues ##
 
