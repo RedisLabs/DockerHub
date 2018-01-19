@@ -94,10 +94,11 @@ The output should look like the following screen if the connection is successful
 ```
 
 ### Quick Reference
-* **Supported Docker Versions:**
-Docker version 17 or greater.
+**Supported Docker Versions:**
 
-* **Getting Started**
+Docker version 17.x or greater.
+
+**Getting Started**
  * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
  * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
  * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
@@ -105,9 +106,9 @@ Docker version 17 or greater.
  * Getting Started with [Redis on Flash](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/redis-enterprise-flash/) Databases
  * Getting Started with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/crdbs/)
  
- * **Detailed Documentation**
- * [Setting up a Redis Enterprise Pack Cluster](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
- * [Documentation](https://redislabs.com/resources/redis-pack-documentation/)
+**Detailed Documentation**
+ * [Setting up a Redis Enterprise Pack Cluster for Production Use](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
+ * [Technical Documentation](https://redislabs.com/resources/redis-pack-documentation/)
  * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
 
 ## Known Issues ##
