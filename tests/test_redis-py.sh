@@ -25,6 +25,12 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
+#print colors
+info_color=""
+warning_color=""
+error_color=""
+no_color=""
+
 #open source settings
 oss_db_port=6379
 oss_host_name="localhost"
@@ -39,7 +45,7 @@ test_oss_db(){
     echo "docker run -d --name redis-python redislabs/redis-py"
     docker run -d --name redis-python redislabs/redis-py
 
-    docker exec -it redis-python "python" /usr/src/app/Redis-Python-Sample.py $oss_host_name $oss_db_port
+    docker exec -it redis-python "python" /usr/src/app/test_db.py $oss_host_name $oss_db_port
 }
 
 
@@ -73,7 +79,7 @@ test_enterprise_db(){
     cmd="docker exec -it rp ifconfig | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1"
     ent_host_name=$(eval $cmd)
 
-    docker exec -it redis-python "python" /usr/src/app/Redis-Python-Sample.py $ent_host_name $ent_db_port
+    docker exec -it redis-python "python" /usr/src/app/test_db.py $ent_host_name $ent_db_port
 }
 
 cleanup(){ 
