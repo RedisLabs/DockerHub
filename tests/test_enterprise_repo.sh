@@ -95,8 +95,8 @@ test_db(){
     echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
 
     sleep 10
-    echo "python test_db.py $rp_db_port"
-    python test_db.py $rp_db_port
+    echo "python test_db.py 127.0.0.1 $rp_db_port"
+    python test_db.py 127.0.0.1 $rp_db_port
 }
 
 ### START HERE ###

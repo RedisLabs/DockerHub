@@ -2,7 +2,7 @@
 
 # The MIT License (MIT)
 #
-# Copyright (c) 2015 Redis Labs
+# Copyright (c) 2018 Redis Labs
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,20 +25,56 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
-#read settings
+#open source settings
 oss_db_port=6379
-oss_container_name_prefix="redis"
+oss_host_name="localhost"
 
-#misc settings
-sleep_time_in_seconds=150
+test_oss_db(){
+    echo "test_oss_db()"
 
-#print colors
-info_color="\033[1;32m"
-warning_color="\033[0;33m"
-error_color="\033[0;31m"
-no_color="\033[0m"
+    #cleanup images and containers
+    cleanup
 
-test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
+    #launch the container
+    echo "docker run -d --name redis-python redislabs/redis-py"
+    docker run -d --name redis-python redislabs/redis-py
+
+    docker exec -it redis-python "python" /usr/src/app/Redis-Python-Sample.py $oss_host_name $oss_db_port
+}
+
+
+#Enterprise settings
+ent_db_port=12000
+ent_host_name=172.17.0.3
+
+test_enterprise_db(){
+    echo "test_enterprise_db()"
+
+    #cleanup images and containers
+    cleanup
+
+    #launch the redis-py container
+    echo "docker run -d --name redis-python redislabs/redis-py"
+    docker run -d --name redis-python redislabs/redis-py
+
+    #launch the enterprise container
+    echo "docker run -d --cap-add sys_resource --name rp -p 9443:9443 -p 12000:12000 redislabs/redis"
+    docker run -d --cap-add sys_resource --name rp -p 9443:9443 -p $ent_db_port:$ent_db_port redislabs/redis
+
+    #provision cluster
+    sleep 60
+    docker exec -d --privileged rp "/opt/redislabs/bin/rladmin" cluster create name cluster.local username cihan@redislabs.com password redislabs123
+
+    #provision db
+    sleep  60
+    curl -k -u "cihan@redislabs.com:redislabs123" --request POST --url "https://localhost:9443/v1/bdbs" --header 'content-type: application/json' --data '{"name":"db1","type":"redis","memory_size":102400,"port":'$ent_db_port'}'
+
+    #get the container ip
+    cmd="docker exec -it rp ifconfig | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1"
+    ent_host_name=$(eval $cmd)
+
+    docker exec -it redis-python "python" /usr/src/app/Redis-Python-Sample.py $ent_host_name $ent_db_port
+}
 
 cleanup(){ 
     echo "cleanup()"
@@ -63,38 +99,17 @@ cleanup(){
 
 }
 
-test_db(){
-    echo "test_db()"
-
-    #test database read/write
-    echo ""
-    echo $info_color"test result"$no_color" ::::::::::::::::::::::::::::::::::::::"
-
-    sleep 10
-    echo "python test_db.py 127.0.0.1 $oss_db_port"    
-    python test_db.py 127.0.0.1 $oss_db_port
-}
 
 ### START HERE ###
+
 
 echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
 read yes_no
 
 if [ $yes_no == 'y' ]
 then
-    for j in ${test_images[@]};
-    do 
-        echo ""
-        echo $info_color"test#1"$no_color": run "$j
-        cleanup
-        
-        #launch the container
-        echo "docker run -d --name $oss_container_name_prefix -p $oss_db_port:$oss_db_port $j"
-        eval "docker run -d --name $oss_container_name_prefix -p $oss_db_port:$oss_db_port $j"
-
-        sleep $sleep_time_in_seconds
-        
-        #test the database read/write
-        test_db
-    done
+    #call test open source database
+    test_oss_db
+    #call test redis enterprise database
+    test_enterprise_db
 fi

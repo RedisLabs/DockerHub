@@ -22,30 +22,28 @@
 #
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
+#
+# PUBLISHING COMMANDS
+# docker build --force-rm --squash  -t redis-py:latest .
+# docker tag redis-py:latest redislabs/redis-py:latest
+# docker push redislabs/redis-py:latest
+
+FROM redis:latest
+
+ENV PATH /usr/local/bin:$PATH
+WORKDIR /usr/src/app
+
+RUN cd /usr/local/bin
+RUN apt-get update
+RUN apt-get install -y python3
+RUN apt-get install -y python-pip
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+COPY Redis-Python-Sample.py ./
+CMD "redis-server"
 
 
-import sys
-import redis
 
-# try:
 
-if (len(sys.argv) <= 1):
-    print("Need to provide a DB port to test connectiivity. Example: python Redis-Python-Sample.py 12000")
-
-host_name = sys.argv[1]
-db_port = sys.argv[2]
-
-print("Connecting to host={0} and port={1}".format(host_name,db_port))
-r = redis.StrictRedis(host=host_name, port=db_port, db=0)
-
-print("Set key 'key1' to value '123' on host={0} and port={1}".format(host_name,db_port))
-r.set('key1', '123')
-
-print("Get key 'key1' and validate value is '123' on host={0} and port={1}".format(host_name,db_port))
-if (r.get('key1') == b'123'):
-    print("DB TEST PASSED")
-else:
-    print("DB TEST FAILED: Can't find the key")
-
-# except:
-#     print("DB TEST FAILED")
