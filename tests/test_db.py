@@ -29,6 +29,8 @@ import redis
 
 # try:
 
+print (":: test_db.py")
+
 if (len(sys.argv) <= 1):
     print("Need to provide a DB port to test connectiivity. Example: python Redis-Python-Sample.py 12000")
 

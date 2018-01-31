@@ -52,7 +52,7 @@ rp_db_port=12000
 sleep_time_in_seconds=150
 
 #print colors
-info_color="\033[1;32m"
-warning_color="\033[0;33m"
-error_color="\033[0;31m"
-no_color="\033[0m"
+info_color=""
+warning_color=""
+error_color=""
+no_color=""

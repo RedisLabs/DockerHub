@@ -30,7 +30,7 @@ oss_db_port=6379
 oss_host_name="localhost"
 
 test_oss_db(){
-    echo "test_oss_db()"
+    echo ":: test_redir-py.sh:: test_oss_db()"
 
     #cleanup images and containers
     cleanup
@@ -48,7 +48,7 @@ ent_db_port=12000
 ent_host_name=172.17.0.3
 
 test_enterprise_db(){
-    echo "test_enterprise_db()"
+    echo ":: test_redir-py.sh:: test_enterprise_db()"
 
     #cleanup images and containers
     cleanup
@@ -77,7 +77,7 @@ test_enterprise_db(){
 }
 
 cleanup(){ 
-    echo "cleanup()"
+    echo ":: test_redir-py.sh:: cleanup()"
 
     #list of contianer to delete
     cleanup_containers=($(docker ps -a -f "name=" --format {{.Names}}))
@@ -89,6 +89,7 @@ cleanup(){
     done
 
     #list of images to delete
+    docker rmi $(docker images -f "dangling=true" -q)
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
 
     #remove all images
@@ -102,7 +103,7 @@ cleanup(){
 
 ### START HERE ###
 
-
+echo ":: test_redir-py.sh"
 echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
 read yes_no
 
