@@ -33,15 +33,15 @@ oss_container_name_prefix="redis"
 sleep_time_in_seconds=150
 
 #print colors
-info_color="\033[1;32m"
-warning_color="\033[0;33m"
-error_color="\033[0;31m"
-no_color="\033[0m"
+info_color=""
+warning_color=""
+error_color=""
+no_color=""
 
 test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 
 cleanup(){ 
-    echo "cleanup()"
+    echo ":: test_oss_repo.sh:: cleanup()"
 
     #list of contianer to delete
     cleanup_containers=($(docker ps -a -f "name=" --format {{.Names}}))
@@ -53,6 +53,7 @@ cleanup(){
     done
 
     #list of images to delete
+    docker rmi $(docker images -f "dangling=true" -q)
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
 
     #remove all images
@@ -64,7 +65,7 @@ cleanup(){
 }
 
 test_db(){
-    echo "test_db()"
+    echo ":: test_oss_repo.sh:: test_db()"
 
     #test database read/write
     echo ""
@@ -76,7 +77,7 @@ test_db(){
 }
 
 ### START HERE ###
-
+echo ":: test_oss_repo.sh"
 echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
 read yes_no
 

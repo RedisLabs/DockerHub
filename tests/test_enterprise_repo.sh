@@ -50,16 +50,17 @@ rp_db_port=12000
 sleep_time_in_seconds=150
 
 #print colors
-info_color="\033[1;32m"
-warning_color="\033[0;33m"
-error_color="\033[0;31m"
-no_color="\033[0m"
+#print colors
+info_color=""
+warning_color=""
+error_color=""
+no_color=""
 
 #images to test
 test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:4.5.0-51" "redislabs/redis:5.0.0-31")
 
 cleanup(){ 
-    echo "cleanup()"
+    echo ":: test_enterprise_repo.sh:: cleanup()"
     
     #list of containers to delete
     cleanup_containers=($(docker ps -a -f "name=" --format {{.Names}}))
@@ -71,6 +72,7 @@ cleanup(){
     done
 
     #list of images to delete
+    docker rmi $(docker images -f "dangling=true" -q)
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
     #remove all images
     for i in ${cleanup_images[@]}; do 
@@ -81,7 +83,7 @@ cleanup(){
 }
 
 test_db(){
-    echo "test_db()"
+    echo ":: test_enterprise_repo.sh:: test_db()"
 
     #create redis pack cluster
     docker exec -d --privileged $rp_container_name_prefix "/opt/redislabs/bin/rladmin" cluster create name $rp_fqdn username $rp_admin_account_name password $rp_admin_account_password flash_enabled
@@ -100,7 +102,7 @@ test_db(){
 }
 
 ### START HERE ###
-
+echo ":: test_enterprise_repo.sh"
 echo $warning_color"WARNING"$no_color": This will wipe out all your containers and images [y/n]"
 read yes_no
 
