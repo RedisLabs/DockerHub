@@ -108,7 +108,6 @@ cleanup(){
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
         eval "docker rmi -f $i"; 
     done
-
 }
 
 
