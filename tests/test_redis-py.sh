@@ -79,8 +79,8 @@ test_enterprise_db(){
     curl -k -u "cihan@redislabs.com:redislabs123" --request POST --url "https://localhost:9443/v1/bdbs" --header 'content-type: application/json' --data '{"name":"db1","type":"redis","memory_size":102400,"port":'$ent_db_port'}'
 
     #get the container ip
-    echo "docker exec -i rp ifconfig | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
-    cmd="docker exec -i rp ifconfig | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1"
+    echo "docker exec -i rp ifconfig eth0 | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
+    cmd="docker exec -i rp ifconfig eth0 | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1"
     ent_host_name=$(eval $cmd)
 
     echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $ent_host_name $ent_db_port"
