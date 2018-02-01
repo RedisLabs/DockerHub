@@ -53,7 +53,7 @@ With the Redis database created, you are ready to connect to your database to st
 
 redis-cli is a simple commandline tool to interact with a Redis instance. Use the following script to connect to the Redis Enterprise Pack container, run redis-cli connecting to port _12000_ and store and retrieve a key.
 
-```
+````
 docker  exec -it rp bash
 
 # sudo /opt/redislabs/bin/redis-cli -p 12000
@@ -61,12 +61,15 @@ docker  exec -it rp bash
 # OK
 # 127.0.0.1:16653> get key1
 # "123"
-```
+#
+````
  
 
 * **Connect using a Simple Python App**: Read and Write Data using a few lines of Python code
 
-A simple Python app running in the host machine can also connect to the _database1_ created Redis Enterprise Pack container. The following section assumes you already have Python and redis-py (Python library for connecting to Redis) configured on the host machine running the container. You can find the instructions to configure redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py)
+A simple Python app running in the host machine can also connect to the _database1_ created Redis Enterprise Pack container. The following section assumes you already have Python and redis-py (Python library for connecting to Redis) configured on the host machine running the container. You can find the instructions to install redis-py on the [github page for redis-py](https://github.com/andymccurdy/redis-py). 
+
+If you don't have python and redis-py installed, you can also run a seperate container that come with redis-py configured. Simply visit the [redis-py hub page](https://hub.docker.com/r/redislabs/redis-py/) for detailed instructions. 
 
 Paste the following into a file named ```"redis_test.py"```
 
@@ -83,7 +86,7 @@ print(r.get('key1'))
 Run ````redis_test.py```` application to connect to the database and store and retrieve a key.
 
 ````
-python.exe redis_test.py
+python redis_test.py
 ````
 
 The output should look like the following screen if the connection is successful.
