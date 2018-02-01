@@ -5,7 +5,7 @@
 Sample docker image based on ```python3``` with ```redis-py``` for testing simple python based Redis apps. 
 
 # Getting Started
-* **Step-1:** Run Redis Enterprise container.
+* **Step-1:** Run the Redis Enterprise container.
 
 ```docker run -d --cap-add sys_resource --name rp -p 8443:8443 -p 9443:9443 -p 12000:12000 redislabs/redis```
 
