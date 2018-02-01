@@ -78,9 +78,6 @@ test_enterprise_db(){
     echo "curl -k -u \"cihan@redislabs.com:redislabs123\" --request POST --url \"https://localhost:9443/v1/bdbs\" --header 'content-type: application/json' --data '{\"name\":\"db1\",\"type\":\"redis\",\"memory_size\":102400,\"port\":$ent_db_port}"
     curl -k -u "cihan@redislabs.com:redislabs123" --request POST --url "https://localhost:9443/v1/bdbs" --header 'content-type: application/json' --data '{"name":"db1","type":"redis","memory_size":102400,"port":'$ent_db_port'}'
 
-    #debug line
-    docker exec -i rp ifconfig eth0
-
     #get the container ip
     echo "docker exec -i rp ifconfig eth0 | grep inet addr | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
     cmd="docker exec -i rp ifconfig eth0 | grep \"inet addr\" | cut -d\":\" -f 2 | cut -d\" \" -f 1"
