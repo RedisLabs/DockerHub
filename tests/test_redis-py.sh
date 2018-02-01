@@ -82,8 +82,8 @@ test_enterprise_db(){
     docker exec -i rp ifconfig eth0
 
     #get the container ip
-    echo "docker exec -i rp ifconfig eth0 | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
-    cmd="docker exec -i rp ifconfig eth0 | grep 172. | cut -d\":\" -f 2 | cut -d\" \" -f 1"
+    echo "docker exec -i rp ifconfig eth0 | grep inet addr | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
+    cmd="docker exec -i rp ifconfig eth0 | grep \"inet addr\" | cut -d\":\" -f 2 | cut -d\" \" -f 1"
     ent_host_name=$(eval $cmd)
 
     echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $ent_host_name $ent_db_port"
