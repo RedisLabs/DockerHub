@@ -9,6 +9,6 @@ before_install:
   - sudo pip install -r requirements.txt
 script:
   - cd tests
-  - echo "y" | sudo ./test_enterprise_repo.sh
-  - echo "y" | sudo ./test_oss_repo.sh
+  # - echo "y" | sudo ./test_enterprise_repo.sh
+  # - echo "y" | sudo ./test_oss_repo.sh
   - echo "y" | sudo ./test_redis-py.sh
