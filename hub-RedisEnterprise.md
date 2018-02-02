@@ -54,11 +54,13 @@ docker  exec -it rp bash
 
 You can run the Redis Enterprise Pack linux based container on MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
+
 > Note: Redis Enterprise Pack Docker image works best when you provide a minimum of 2 cores and 6GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)
 
 1. __Run Redis Enterprise Pack container__
 
 Port 8443 is used for the administration UI and port 12000 is reserved for the Redis database that will be created in Step #5 below.
+
 
 ```docker run -d --cap-add sys_resource --name rp -p 8443:8443 -p 12000:12000 redislabs/redis```
 

@@ -59,6 +59,7 @@ rp_admin_account_name="cihan@redislabs.com"
 rp_admin_account_password="redislabs123"
 rp_fqdn="cluster.rp.local"
 
+
 test_enterprise_db(){
     echo ":: test_redir-py.sh:: test_enterprise_db()"
 
