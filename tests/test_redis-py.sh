@@ -25,6 +25,8 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
+source ./test_setttings.sh
+
 #print colors
 info_color=""
 warning_color=""
@@ -51,7 +53,7 @@ test_oss_db(){
 
 
 #Enterprise settings
-ent_host_name=172.17.0.2 #typically the default ip address
+rp_host_name=172.17.0.2 #typically the default ip address
 rp_admin_ui_port=8443
 rp_admin_restapi_port=9443
 rp_db_port=12000
@@ -87,10 +89,10 @@ test_enterprise_db(){
     #get the container ip
     echo "docker exec -i rp ifconfig eth0 | grep inet addr | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
     cmd="docker exec -i rp ifconfig eth0 | grep \"inet addr\" | cut -d\":\" -f 2 | cut -d\" \" -f 1"
-    ent_host_name=$(eval $cmd)
+    rp_host_name=$(eval $cmd)
 
-    echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $ent_host_name $rp_db_port"
-    docker exec -i redis-python "python" /usr/src/app/test_db.py $ent_host_name $rp_db_port
+    echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $rp_host_name $rp_db_port"
+    docker exec -i redis-python "python" /usr/src/app/test_db.py $rp_host_name $rp_db_port
 }
 
 cleanup(){ 
