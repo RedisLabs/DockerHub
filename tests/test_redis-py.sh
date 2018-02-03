@@ -25,7 +25,7 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
-source ./test_setttings.sh
+source test_setttings.sh
 
 
 # #print colors
