@@ -27,6 +27,7 @@
 
 source ./test_setttings.sh
 
+
 #print colors
 info_color=""
 warning_color=""
