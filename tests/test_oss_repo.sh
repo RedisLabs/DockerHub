@@ -25,18 +25,8 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
-#read settings
-oss_db_port=6379
-oss_container_name_prefix="redis"
-
-#misc settings
-sleep_time_in_seconds=150
-
-#print colors
-info_color=""
-warning_color=""
-error_color=""
-no_color=""
+#settings import
+source ./test_settings.sh
 
 test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
 

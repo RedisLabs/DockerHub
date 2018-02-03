@@ -25,18 +25,9 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
+#settings import
 source ./test_settings.sh
 
-
-# #print colors
-# info_color=""
-# warning_color=""
-# error_color=""
-# no_color=""
-
-# #open source settings
-# oss_db_port=6379
-# oss_host_name="localhost"
 
 test_oss_db(){
     echo ":: test_redir-py.sh:: test_oss_db()"
