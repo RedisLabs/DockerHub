@@ -28,15 +28,15 @@
 source ./test_setttings.sh
 
 
-#print colors
-info_color=""
-warning_color=""
-error_color=""
-no_color=""
+# #print colors
+# info_color=""
+# warning_color=""
+# error_color=""
+# no_color=""
 
-#open source settings
-oss_db_port=6379
-oss_host_name="localhost"
+# #open source settings
+# oss_db_port=6379
+# oss_host_name="localhost"
 
 test_oss_db(){
     echo ":: test_redir-py.sh:: test_oss_db()"
@@ -54,13 +54,13 @@ test_oss_db(){
 
 
 #Enterprise settings
-rp_host_name=172.17.0.2 #typically the default ip address
-rp_admin_ui_port=8443
-rp_admin_restapi_port=9443
-rp_db_port=12000
-rp_admin_account_name="cihan@redislabs.com"
-rp_admin_account_password="redislabs123"
-rp_fqdn="cluster.rp.local"
+# rp_host_name=172.17.0.2 #typically the default ip address
+# rp_admin_ui_port=8443
+# rp_admin_restapi_port=9443
+# rp_db_port=12000
+# rp_admin_account_name="cihan@redislabs.com"
+# rp_admin_account_password="redislabs123"
+# rp_fqdn="cluster.rp.local"
 
 
 test_enterprise_db(){
