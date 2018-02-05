@@ -25,15 +25,9 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
-#print colors
-info_color=""
-warning_color=""
-error_color=""
-no_color=""
+#settings import
+source ./test_settings.sh
 
-#open source settings
-oss_db_port=6379
-oss_host_name="localhost"
 
 test_oss_db(){
     echo ":: test_redir-py.sh:: test_oss_db()"
@@ -51,8 +45,14 @@ test_oss_db(){
 
 
 #Enterprise settings
-ent_db_port=12000
-ent_host_name=172.17.0.3
+# rp_host_name=172.17.0.2 #typically the default ip address
+# rp_admin_ui_port=8443
+# rp_admin_restapi_port=9443
+# rp_db_port=12000
+# rp_admin_account_name="cihan@redislabs.com"
+# rp_admin_account_password="redislabs123"
+# rp_fqdn="cluster.rp.local"
+
 
 test_enterprise_db(){
     echo ":: test_redir-py.sh:: test_enterprise_db()"
@@ -66,25 +66,25 @@ test_enterprise_db(){
 
     #launch the enterprise container
     echo "docker run -d --cap-add sys_resource --name rp -p 9443:9443 -p 12000:12000 redislabs/redis"
-    docker run -d --cap-add sys_resource --name rp -p 9443:9443 -p $ent_db_port:$ent_db_port redislabs/redis
+    docker run -d --cap-add sys_resource --name rp -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port redislabs/redis
 
     #provision cluster
     sleep 60
     echo "docker exec -d --privileged rp /opt/redislabs/bin/rladmin cluster create name cluster.local username cihan@redislabs.com password redislabs123"
-    docker exec -d --privileged rp "/opt/redislabs/bin/rladmin" cluster create name cluster.local username cihan@redislabs.com password redislabs123
+    docker exec -d --privileged rp "/opt/redislabs/bin/rladmin" cluster create name $rp_fqdn username $rp_admin_account_name password $rp_admin_account_password
 
     #provision db
     sleep  60
-    echo "curl -k -u \"cihan@redislabs.com:redislabs123\" --request POST --url \"https://localhost:9443/v1/bdbs\" --header 'content-type: application/json' --data '{\"name\":\"db1\",\"type\":\"redis\",\"memory_size\":102400,\"port\":$ent_db_port}"
-    curl -k -u "cihan@redislabs.com:redislabs123" --request POST --url "https://localhost:9443/v1/bdbs" --header 'content-type: application/json' --data '{"name":"db1","type":"redis","memory_size":102400,"port":'$ent_db_port'}'
+    echo "curl -k -u \"$rp_admin_account_name:$rp_admin_account_password\" --request POST --url \"https://localhost:9443/v1/bdbs\" --header 'content-type: application/json' --data '{\"name\":\"db1\",\"type\":\"redis\",\"memory_size\":102400,\"port\":$rp_db_port}"
+    curl -k -u "$rp_admin_account_name:$rp_admin_account_password" --request POST --url "https://localhost:9443/v1/bdbs" --header 'content-type: application/json' --data '{"name":"db1","type":"redis","memory_size":102400,"port":'$rp_db_port'}'
 
     #get the container ip
     echo "docker exec -i rp ifconfig eth0 | grep inet addr | cut -d\":\" -f 2 | cut -d\" \" -f 1" 
     cmd="docker exec -i rp ifconfig eth0 | grep \"inet addr\" | cut -d\":\" -f 2 | cut -d\" \" -f 1"
-    ent_host_name=$(eval $cmd)
+    rp_host_name=$(eval $cmd)
 
-    echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $ent_host_name $ent_db_port"
-    docker exec -i redis-python "python" /usr/src/app/test_db.py $ent_host_name $ent_db_port
+    echo "docker exec -i redis-python \"python\" /usr/src/app/test_db.py $rp_host_name $rp_db_port"
+    docker exec -i redis-python "python" /usr/src/app/test_db.py $rp_host_name $rp_db_port
 }
 
 cleanup(){ 
@@ -100,10 +100,10 @@ cleanup(){
     done
 
     #list of images to delete
-    docker rmi $(docker images -f "dangling=true" -q)
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
 
     #remove all images
+    docker rmi $(docker images -f "dangling=true" -q)
     for i in ${cleanup_images[@]}; do 
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
         eval "docker rmi -f $i"; 
