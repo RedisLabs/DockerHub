@@ -27,7 +27,7 @@
 
 ##rp settings
 #total number of nodes to set up
-rp_total_nodes=3
+rp_total_nodes=1
 #container ame prefix - each node get a number added based on nodecount
 rp_container_name_prefix="rp"
 #container resources
@@ -50,6 +50,7 @@ rp_host_name=172.17.0.2 #typically the default ip address
 #open source settings
 oss_db_port=6379
 oss_host_name="localhost"
+oss_container_name_prefix="redis"
 
 #misc settings
 sleep_time_in_seconds=150

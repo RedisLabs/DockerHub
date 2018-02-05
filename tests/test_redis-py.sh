@@ -100,10 +100,10 @@ cleanup(){
     done
 
     #list of images to delete
-    docker rmi $(docker images -f "dangling=true" -q)
     cleanup_images=($(docker image list --format {{.Repository}}:{{.Tag}}))
 
     #remove all images
+    docker rmi $(docker images -f "dangling=true" -q)
     for i in ${cleanup_images[@]}; do 
         echo $info_color"REMOVING CONTAINER IMAGE : "$no_color $i
         eval "docker rmi -f $i"; 
