@@ -28,9 +28,6 @@
 #settings import
 source ./test_settings.sh
 
-#images to test
-test_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:4.5.0-51" "redislabs/redis:5.0.0-31")
-
 cleanup(){ 
     echo ":: test_enterprise_repo.sh:: cleanup()"
     
@@ -81,7 +78,7 @@ read yes_no
 
 if [ $yes_no == 'y' ]
 then
-    for j in ${test_images[@]};
+    for j in ${test_enterprise_images[@]};
     do 
         echo ""
         echo $info_color"test#1"$no_color": run "$j

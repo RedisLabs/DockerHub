@@ -28,8 +28,6 @@
 #settings import
 source ./test_settings.sh
 
-test_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
-
 cleanup(){ 
     echo ":: test_oss_repo.sh:: cleanup()"
 
@@ -73,7 +71,7 @@ read yes_no
 
 if [ $yes_no == 'y' ]
 then
-    for j in ${test_images[@]};
+    for j in ${test_oss_images[@]};
     do 
         echo ""
         echo $info_color"test#1"$no_color": run "$j

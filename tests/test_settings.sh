@@ -25,6 +25,10 @@
 # Script Name: settings.sh
 # Author: Cihan Biyikoglu - github:(cihanb)
 
+#images to test
+test_enterprise_images=("redislabs/redis"  "redislabs/redis:latest" "redislabs/redis:4.4.2-46" "redislabs/redis:4.5.0-18" "redislabs/redis:4.5.0-22" "redislabs/redis:4.5.0-31" "redislabs/redis:4.5.0-35" "redislabs/redis:4.5.0-43" "redislabs/redis:4.5.0-51" "redislabs/redis:5.0.0-31" "redislabs/redis:5.0.1-22-beta")
+test_oss_images=("redislabs/redisearch"  "redislabs/rejson" "redislabs/rebloom")
+
 ##rp settings
 #total number of nodes to set up
 rp_total_nodes=1
