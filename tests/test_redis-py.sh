@@ -65,6 +65,7 @@ test_enterprise_db(){
     docker run -d --name redis-python redislabs/redis-py:latest
 
     #launch the enterprise container
+
     echo "docker run -d --cap-add sys_resource --name rp -p 9443:9443 -p 12000:12000 redislabs/redis:latest"
     docker run -d --cap-add sys_resource --name rp -p $rp_admin_restapi_port:$rp_admin_restapi_port -p $rp_db_port:$rp_db_port redislabs/redis:latest
 
