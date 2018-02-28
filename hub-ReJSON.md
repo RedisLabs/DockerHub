@@ -37,9 +37,9 @@ OK
 
 
 ## ReJSON with Redis Enterprise
-Redis Enterprise Pack is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReJSON with Redis Enterprise to get the advantages above with your ReJSON deployments. 
+Redis Enterprise Software is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReJSON with Redis Enterprise to get the advantages above with your ReJSON deployments. 
 
-Open source Redis applications using ReJSON transparently work against Redis Enterprise Pack. Simply change your connections to point at Redis Enterprise Pack database endpoint. 
+Open source Redis applications using ReJSON transparently work against Redis Enterprise Software. Simply change your connections to point at Redis Enterprise Software database endpoint. 
 
 To get started visit the "[Getting started with ReJSON with Redis Enterprise](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rejson-quick-start)" page.
 

@@ -1,5 +1,5 @@
 # Docker Hub Pages for Redislabs
-Docker Hub for Redis Pack
+Docker Hub for Redis Enterprise Software
 
 [![Build Status](https://travis-ci.org/RedisLabs/DockerHub.svg?branch=master)](https://travis-ci.org/RedisLabs/DockerHub)
 
