@@ -5,14 +5,14 @@
 
 [![Build Status](https://travis-ci.org/RedisLabs/DockerHub.svg?branch=master)](https://travis-ci.org/RedisLabs/DockerHub)
 
-## What is Redis Enterprise Pack (RP)? ##
-[**Redis Enterprise Pack**](https://redislabs.com/products/redis-pack/) is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Pack extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.
+## What is Redis Enterprise Software (RS)? ##
+[**Redis Enterprise Software**](https://redislabs.com/redis-enterprise/software//) is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Software extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.
 
-![RP Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/general/redis_arch.jpeg)
+![RS Architecture](https://raw.githubusercontent.com/RedisLabs/DockerHub/master/pictures/general/redis_arch.jpeg)
 
-* Redis Enterprise Pack can use both RAM and Flash drives such as SSDs for data processing. See [Redis on Flash](https://redislabs.com/products/redis-pack/flash-memory/)) for details. 
-* Redis Enterprise Pack can also support active-active geo-distributed applications with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/concepts-architecture/intercluster-replication/)
-* Redis Enterprise Pack supports Redis Modules. See details at [RediSearch](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/redisearch/), [ReJSON](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rejson-quick-start/) and [ReBloom](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rebloom/)
+* Redis Enterprise Software can use both RAM and Flash drives such as SSDs for data processing. See [Redis on Flash](https://redislabs.com/products/redis-pack/flash-memory/)) for details. 
+* Redis Enterprise Software can also support active-active geo-distributed applications with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/concepts-architecture/intercluster-replication/)
+* Redis Enterprise Software supports Redis Modules. See details at [RediSearch](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/redisearch/), [ReJSON](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rejson-quick-start/) and [ReBloom](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rebloom/)
 
 
 # Quick Start
@@ -52,19 +52,19 @@ docker  exec -it rp bash
 
 # Step-by-Step Guide
 
-You can run the Redis Enterprise Pack linux based container on MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Pack container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
+You can run the Redis Enterprise Software linux based container on MacOS, various Linux and Windows based machines with Docker. Each Redis Enterprise Software container runs a cluster node. To get started, you can simply set up a one node cluster, create a database and connect your application to the database.
 
 
-> Note: Redis Enterprise Pack Docker image works best when you provide a minimum of 2 cores and 6GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Pack in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)
+> Note: Redis Enterprise Software Docker image works best when you provide a minimum of 2 cores and 6GB ram per container. You can find additional minimum hardware and software requirements for Redis Enterprise Software in the [product documentation](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/hardware-software-requirements/)
 
-1. __Run Redis Enterprise Pack container__
+1. __Run Redis Enterprise Software container__
 
 Port 8443 is used for the administration UI and port 12000 is reserved for the Redis database that will be created in Step #5 below.
 
 
 ```docker run -d --cap-add sys_resource --name rp -p 8443:8443 -p 12000:12000 redislabs/redis```
 
-2. __Setup Redis Enterprise Pack by visiting `https://localhost:8443` on the host machine to see the RP Web Console__
+2. __Setup Redis Enterprise Software by visiting `https://localhost:8443` on the host machine to see the RS Web Console__
 
 > Note: You may see a certificate error with your browser. Simply choose "continue to the website" to get to the setup screen.
 
@@ -93,7 +93,7 @@ With the Redis database created, you are ready to connect to your database to st
 
 * **Connect using ```redis-cli```**: 
 
-```redis-cli``` is a simple commandline tool to interact with a Redis instance. Use the following script to connect to the Redis Enterprise Pack container, run ```redis-cli``` connecting to port _12000_ and store and retrieve a key.
+```redis-cli``` is a simple commandline tool to interact with a Redis instance. Use the following script to connect to the Redis Enterprise Software container, run ```redis-cli``` connecting to port _12000_ and store and retrieve a key.
 
 ````
 docker  exec -it rp bash
@@ -149,15 +149,15 @@ The output should look like the following screen if the connection is successful
 Docker version 17.x or greater.
 
 **Getting Started**
- * [Working with Redis Enterprise Pack and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
- * Getting Started with Redis Enterprise Pack and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
- * Getting Started with Redis Enterprise Pack and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
- * Getting Started with Redis Enterprise Pack and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
+ * [Working with Redis Enterprise Software and Docker](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/)
+ * Getting Started with Redis Enterprise Software and [Docker on Windows](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/windows/), 
+ * Getting Started with Redis Enterprise Software and [Docker on Mac OSx](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/macos/), 
+ * Getting Started with Redis Enterprise Software and [Docker on Linux](https://redislabs.com/redis-enterprise-documentation/installing-and-upgrading/docker/linux/)
  * Getting Started with [Redis on Flash](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/redis-enterprise-flash/) Databases
  * Getting Started with [Redis CRDTs](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/crdbs/)
  
 **Detailed Documentation**
- * [Setting up a Redis Enterprise Pack Cluster for Production Use](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
+ * [Setting up a Redis Enterprise Software Cluster for Production Use](https://redislabs.com/redis-enterprise-documentation/initial-setup-creating-a-new-cluster/)
  * [Technical Documentation](https://redislabs.com/resources/redis-pack-documentation/)
  * [How To Guides](https://redislabs.com/resources/how-to-redis-enterprise/)
 

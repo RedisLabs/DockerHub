@@ -31,9 +31,9 @@ docker exec -it redis-rebloom bash
 
 ## 
 ## ReBloom with Redis Enterprise
-Redis Enterprise Pack is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReBloom with Redis Enterprise to get the advantages above with your ReBloom deployments. 
+Redis Enterprise Software is enterprise grade, highly available, scalable, distributed version of Redis that is fully compatible with open source Redis. You can use ReBloom with Redis Enterprise to get the advantages above with your ReBloom deployments. 
 
-Open source Redis applications using ReBloom transparently work against Redis Enterprise Pack. Simply change your connections to point at Redis Enterprise Pack database endpoint. 
+Open source Redis applications using ReBloom transparently work against Redis Enterprise Software. Simply change your connections to point at Redis Enterprise Software database endpoint. 
 
 To get started visit the "[Getting started with ReBloom with Redis Enterprise](https://redislabs.com/redis-enterprise-documentation/getting-started/creating-database/rebloom/)" page.
 
