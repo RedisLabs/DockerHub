@@ -30,6 +30,8 @@
 
 FROM redis:latest
 
+MAINTAINER Redis Labs
+
 ENV PATH /usr/local/bin:$PATH
 WORKDIR /usr/src/app
 
